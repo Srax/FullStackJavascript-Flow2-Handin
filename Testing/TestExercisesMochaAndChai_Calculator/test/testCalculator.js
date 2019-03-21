@@ -33,7 +33,7 @@ describe("Calculator API", function() {
 
 		//Testing the calculate.subtract (÷) function where we divide by zero
 		it("-> 100 / 0 should throw an error: 'Error! Cannot divide by zero' <-", function() {
-			expect(() => calculate.divide(4, 0)).to.throw("Error! Cannot divide by zero");
+			expect(() => calculate.divide(100, 0)).to.throw("Error! Cannot divide by zero");
 		});
 	});
 	describe("\n->-> Testing the calculator API <-<-", function() {
