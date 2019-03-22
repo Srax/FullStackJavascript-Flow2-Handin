@@ -4,7 +4,8 @@ Note: This description is too big for a single exam-question. It will be divided
 
 ### Why would you consider a Scripting Language as JavaScript as your Backend Platform?
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Acording to StackOverflow's [Most Popular Technologies](https://insights.stackoverflow.com/survey/2018#technology-programming-scripting-and-markup-languages), for the sixth year in a row, JavaScript is the most commonly used programming language and Node.js continues to be the most commonly used techonolgy in the "Frameworks, Libraries, and Tools" category.
+![](https://i.imgur.com/xrNlRWA.png)
 
 
 
