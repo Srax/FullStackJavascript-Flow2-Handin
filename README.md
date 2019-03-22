@@ -1,8 +1,8 @@
-# Project Title
+# Period-2 Node.js, Express + JavaScript Backend Testing, NoSQL, MongoDB and Mongoose
 
-One Paragraph of project description goes here
+Note: This description is too big for a single exam-question. It will be divided up into separate questions for the exam
 
-## Getting Started
+## Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using, for example, Java/JAX-RS/Tomcat
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
