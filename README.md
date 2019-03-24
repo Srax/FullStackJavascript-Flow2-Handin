@@ -92,5 +92,10 @@ var b = require('debug')('name:b');
 * if `DEBUG=name:*` all debug statements with `name` in it will be debugged.
 
 
-### Demonstrate a system using application logging and “coloured” debug statements.
+### Explain, using relevant examples, concepts related to testing a REST-API using Node/JavaScript + relevant packages
+We can test our REST endpoints with [mocca](https://www.npmjs.com/package/mocca) and [chai](https://www.npmjs.com/package/chai).
+Here is an example:
+```Javascript
+
+```
 
