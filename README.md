@@ -38,4 +38,12 @@ Since the release of Node.js v10.5.0 there’s a new worker_threads module avail
 There are two solutions to make sure out Node-process restarts after a potential exception/crash.
 The first one is to use a Process Manager. A Process Manager manages the 'starting' of our application, which means we no longer have to start the application manually. We can configure the Process Manager to automatically restart the application if a crash occurs.
 
+Here is a list of popular Process Managers for Express [(source)](https://expressjs.com/en/advanced/pm.html):
+1. Forever: A simple command-line interface tool to ensure that a script runs continuously (forever). Forever’s simple interface makes it ideal for running smaller deployments of Node.js apps and scripts.
+
+2. PM2: A production process manager for Node.js applications that has a built-in load balancer. PM2 enables you to keep applications alive forever, reloads them without downtime, helps you to manage application logging, monitoring, and clustering.
+
+3. StrongLoop Process Manager (Strong-PM): A production process manager for Node.js applications with built-in load balancing, monitoring, and multi-host deployment. Includes a CLI to build, package, and deploy Node.js applications to a local or remote system.
+
 The second solution is to use Nodemon is a utility that monitor for changes in our source, which means it can be used to restart our application or server if it crashes.
+
