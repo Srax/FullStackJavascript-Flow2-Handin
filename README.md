@@ -51,9 +51,10 @@ To take advantage of a multi-core system, we can use API's, Node.js' worker_thre
 To ensure that we can run "many" node-applications on a single droplet at the same port, we can use NGINX as a proxy or use some sort of load-balancer.
 
 ### Explain the difference between “Debug outputs” and application logging. What’s wrong with console.log(..) statements in our backend-code.
-Acording to [HackerNoon](https://hackernoon.com/please-stop-using-console-log-its-broken-b5d7d396cf15) one of the major problems with using `console.log` givesa way too much information, which can be used to hack our system. `console.log` also 'blocking call' which means it can impact the performance of our application by 'blocking' our other processes for a short period of time when it's called.
+Acording to [HackerNoon](https://hackernoon.com/please-stop-using-console-log-its-broken-b5d7d396cf15) one of the major problems with using `console.log` givesa way too much information, which can be used to hack our system. `console.log` is also 'blocking call' which means it can impact the performance of our application by 'blocking' our other processes for a short period of time when it's called.
+`console.log` can not be "disabled" which makes it very difficult to remove or disabled from the code, if not done right after debugging with it... 
 
-The `Debug Package` for node.js allows us to debug our code and even print debug messages.
+The `Debug Package` for node.js allows us to debug our code, print specific debug messages and it can also be `DISABLED`.
 Here is an example of how we can Debug in Express:
 ```Javascript
 var a = require('debug')('a');
