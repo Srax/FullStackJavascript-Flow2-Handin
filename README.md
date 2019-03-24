@@ -273,3 +273,20 @@ Since we use mongoDB, I decided to include their expert explanation of what NoSQ
 >* Organizations are now turning to scale-out architectures using open source software, commodity servers and cloud computing instead of large monolithic servers and storage infrastructure.   
 Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. [(source)](https://www.mongodb.com/nosql-explained)   
 
+### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
+#### pros
+* MongoDB is schemale-less model which makes it very flexible, which means the database can very easily be expanded later in production with very little difficulty. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better way to go.
+
+* We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true` to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
+```Javascript
+var UserSchema = new Schema({
+    username: {type: String, unique: true, required: true},
+    password: {type: String, required: true},
+    firstName: String,
+    lastName: String,
+    email: {type: String, unique: true, required: true},
+    created: {type: Date, default: Date.now(), required: true},
+    lastUpdated: Date,
+    job: [JobSchema]
+});
+```
