@@ -161,35 +161,49 @@ Middleware functions can perform the following tasks:
 * Make changes to the request and the response objects.
 * End the request-response cycle.
 * Call the next middleware function in the stack.
-[source] (https://expressjs.com/en/guide/using-middleware.html)
+[source] (https://github.com/Srax/FullStackJavascript-Flow2-Handin/blob/master/Express%20Exercises/Express_Exercise_Middleware/app.js)
 
 I have used middleware functions in my [calculator](https://github.com/Srax/FullStackJavascript-Flow2-Handin/blob/master/Testing/TestExercisesMochaAndChai_Calculator/calculator.js#L15).
 ```Javascript
-//Basic calculator functions: plus, minus, multiply and divide
-function add(n1, n2) {return n1 + n2;}
-function subtract(n1, n2) {return n1 - n2;}
-function muliply(n1, n2) {return n1 * n2;}
-function divide(n1, n2) {
-	if (n2 == 0) {
-		throw new Error("Error! Cannot divide by zero");
-	}
-	return n1 / n2;
-}
+//Function 1
+app.use("/api/calculator/:n1/:operation/:n2", function(req, res, next) {
+	var calculatorRequest = {
+		operation: req.params.operation,
+		n1: Number(req.params.n1),
+		n2: Number(req.params.n2)
+	};
+	req.body = calculatorRequest;
 
-//REST Calculation server for the API
-function calculatorServer(port, isStartedCb) {
-	const app = express();
-	app.get("/api/calc/:n1/add/:n2", (req, res) => {
-		n1 = Number(req.params.n1);
-		n2 = Number(req.params.n2);
-		res.send(add(n1, n2).toString());
-	});
-	let server = http.createServer(app);
-	setTimeout(() => {
-		server.listen(port, () => {
-			isStartedCb(server);
-		});
-	}, 1500);
-}
+	next();
+});
 
+//Function 2
+app.get("/api/calculator/*", function(req, res) {
+	let body = req.body;
+	body["result"] = eval(`${body["n1"]}${body["operation"]}${body["n2"]}`);
+	res.send(JSON.stringify(body));
+});
+
+
+//Function 3
+app.get("/*", function(req, res) {
+	const rh = req.headers;
+	var headerText = "<h1>API Calculator</h1>";
+	var paragraphText = "<span><h3>How to use the api: <code>http://localhost:3000/api/calculator/2/*/2</code></span></h3><br/>";
+	res.send(
+		headerText.toLocaleString() +
+		paragraphText.toLocaleString() +
+		JSON.stringify(rh)
+	);
+
+});
 ```
+The above example shows 3 different middleware functions.
+`Function 3` shows a middleware function mounted on the `/*` path, it prints out some simple information on the page. The function is executed for any type of HTTP request on the `/*` path.
+
+`Function 2` shows a middleware function mounted on the `/api/calculator/*` path.
+It take the information from `Function 2`, calculates the result by using `eval`, and then turns it into a JSON object which is then displayed on the side. Example, if `Function 1` returns a `operation: +´, n1: 2, n3: 5` response, `Function 2` will calculate the response and return `7` as the result.
+The function is executed for any type of HTTP request on the `/api/calculator/*` path.
+
+`Functiion 1` shows a middleware function mounted on the `/api/calculator/:n1/:operation/:n2`, where it take parameters from the PATH and wrap them in  a request.
+
