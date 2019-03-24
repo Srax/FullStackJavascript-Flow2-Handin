@@ -207,3 +207,14 @@ The function is executed for any type of HTTP request on the `/api/calculator/*`
 
 `Functiion 1` shows a middleware function mounted on the `/api/calculator/:n1/:operation/:n2`, where it take parameters from the PATH and wrap them in  a request.
 
+### Demonstrate a simple Server Side Rendering example using a technology of your own choice (pug, EJS, ..).
+I have used server side rendering in my `Jokes` exercise with EJS: [Express_Exercise_Logger_&_Serverside_Templating](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Express%20Exercises/Express_Exercise_Logger_%26_Serverside_Templating).
+
+You login with a username, and can then request a random joke, get a list of all jokes and add a joke to the collection.
+
+
+### Explain, using relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using, for example, the Request package.
+This [example from Vegibit](https://vegibit.com/mongoose-crud-tutorial/) explains how implement CRUD in our Node/Express project.
+I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test).
+
+
