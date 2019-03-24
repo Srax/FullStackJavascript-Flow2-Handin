@@ -24,3 +24,12 @@ Another benefit to using javascript as the backend is single-threaded event loop
 #### cons
 1. Due to its asynchronous nature, Node.js relies heavily on callbacks, the functions that run after each task in the queue is finished. Keeping a number of queued tasks in the background, each with its callback can end in a callback hell, which is when people try to write JavaScript in a way where execution happens visually from top to bottom.
 2. Many libraries and dependencies aren't necessarily future-proof so means they may become outdated in the future.
+
+### Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.
+We use event loops to synchronize functions (async), which allows functions to 'wait' for others functions to finish before they're called. This prevents blocking the main thread so they program won't stop running.
+
+##### Solution 1:
+API’s solves the problem, for example: Node can install a fetch module that makes fetching an async operation. File readings etc. are all built into node.
+
+##### Solution 2:
+Since the release of Node.js v10.5.0 there’s a new worker_threads module available, which we can use to make multiple threads run at the same time at different cores.
