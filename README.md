@@ -32,7 +32,9 @@ We use event loops to synchronize functions (async), which allows functions to '
 API’s solves the problem, for example: Node can install a fetch module that makes fetching an async operation. File readings etc. are all built into node.
 
 ##### Solution 2:
-Since the release of Node.js v10.5.0 there’s a new worker_threads module available, which we can use to make multiple threads run at the same time at different cores.
+Since the release of Node.js v10.5.0 there’s a new worker_threads (clusters) module available, which we can use to make multiple threads run at the same time at different cores.
+
+
 
 ### Explain briefly how to deploy a Node/Express application including how to solve the following deployment problems: Ensure that you Node-process restarts after a (potential) exception that closed the application Ensure that you Node-process restarts after a server (Ubuntu) restart Ensure that you can take advantage of a multi-core system Ensure that you can run “many” node-applications on a single droplet on the same port (80)
 There are two solutions to make sure out Node-process restarts after a potential exception/crash.
@@ -45,3 +47,7 @@ Here is a list of popular Process Managers for Express [(source)](https://expres
 
 The second solution is to use Nodemon is a utility that monitor for changes in our source, which means it can be used to restart our application or server if it crashes.
 
+To take advantage of a multi-core system, we can use API's, Node.js' worker_threads (clusters) or event-loops as i explained above.
+To ensure that we can run "many" node-applications on a single droplet at the same port, we can use NGINX as a proxy or use some sort of load-balancer.
+
+### Explain the difference between “Debug outputs” and application logging. What’s wrong with console.log(..) statements in our backend-code.
