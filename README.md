@@ -95,7 +95,7 @@ var b = require('debug')('name:b');
 ### Explain, using relevant examples, concepts related to testing a REST-API using Node/JavaScript + relevant packages
 We can test our REST endpoints with [mocca](https://www.npmjs.com/package/mocca) and [chai](https://www.npmjs.com/package/chai).
 We use `mocca` to run our tests and `chai` to make our tests more readable
-Here is an example:
+Here is an example where I've used `mocca` and `chai` to test my [Calculator API](https://github.com/Srax/FullStackJavascript-Flow2-Handin/blob/master/Testing/TestExercisesMochaAndChai_Calculator/test/testCalculator.js):
 ```Javascript
 const expect = require("chai").expect;
 const calculate = require("../calculator");
@@ -153,3 +153,43 @@ describe("\n->-> Testing the calculator API <-<-", function() {
 });
 ```
 
+### Explain, using relevant examples, the Express concept; middleware.
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+Middleware functions can perform the following tasks:
+
+* Execute any code.
+* Make changes to the request and the response objects.
+* End the request-response cycle.
+* Call the next middleware function in the stack.
+[source] (https://expressjs.com/en/guide/using-middleware.html)
+
+I have used middleware functions in my [calculator](https://github.com/Srax/FullStackJavascript-Flow2-Handin/blob/master/Testing/TestExercisesMochaAndChai_Calculator/calculator.js#L15).
+```Javascript
+//Basic calculator functions: plus, minus, multiply and divide
+function add(n1, n2) {return n1 + n2;}
+function subtract(n1, n2) {return n1 - n2;}
+function muliply(n1, n2) {return n1 * n2;}
+function divide(n1, n2) {
+	if (n2 == 0) {
+		throw new Error("Error! Cannot divide by zero");
+	}
+	return n1 / n2;
+}
+
+//REST Calculation server for the API
+function calculatorServer(port, isStartedCb) {
+	const app = express();
+	app.get("/api/calc/:n1/add/:n2", (req, res) => {
+		n1 = Number(req.params.n1);
+		n2 = Number(req.params.n2);
+		res.send(add(n1, n2).toString());
+	});
+	let server = http.createServer(app);
+	setTimeout(() => {
+		server.listen(port, () => {
+			isStartedCb(server);
+		});
+	}, 1500);
+}
+
+```
