@@ -254,3 +254,10 @@ describe("Tools", function() {
 
 });
 ```
+### Explain, preferably using an example, how you have deployed your node/Express applications, and which of the Express Production best practices you have followed.
+I have not yet to deploy my node/express applications anywhere, but here is a list of good practices when doing so:
+* [NodeJS Best Practices](https://www.codementor.io/mattgoldspink/nodejs-best-practices-du1086jja)
+* [Performance](https://expressjs.com/en/advanced/best-practice-performance.html)
+* [Deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment)
+* [Security](https://expressjs.com/en/advanced/best-practice-performance.html)
+* [Production](https://medium.freecodecamp.org/how-to-write-a-production-ready-node-and-express-app-f214f0b17d8c)
