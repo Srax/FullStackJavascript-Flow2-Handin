@@ -212,10 +212,158 @@ The function is executed for any type of HTTP request on the `/api/calculator/*`
 I have used server side rendering in my `Jokes` exercise with EJS: [Express_Exercise_Logger_&_Serverside_Templating](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Express%20Exercises/Express_Exercise_Logger_%26_Serverside_Templating).
 You login with a username, and can then request a random joke, get a list of all jokes and add a joke to the collection.
 
+Joke Exercise Example: 
+
+The Route to get a random joke:
+```Javascript
+router.get("/joke", function(req, res, next) {
+	let counter = req.session.jokeCounter;
+	counter++;
+	req.session.jokeCounter = counter;
+	res.render("randomJoke", { title: "Joke", joke: jokes.getRandomJoke() });
+});
+
+```
+
+Random joke rendered on the site:
+```Javascript
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href='/'>Go Home</a>
+    <hr/>
+    <p><%= joke %></p>
+    <hr/>
+    <a href='/joke'>Reload</a>
+  </body>
+</html>
+```
+
 
 ### Explain, using relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using, for example, the Request package.
 This [example from Vegibit](https://vegibit.com/mongoose-crud-tutorial/) explains how implement CRUD in our Node/Express project.   
 I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test).
+
+In the example below i test my UserFacade:
+
+Facade:
+```Javascript
+const User = require('../models/user');
+
+
+async function addUser(username, password, firstName = 'undefined', lastName = "undefined", email, created = undefined) {
+    var user = new User({
+        username: [username],
+        password: [password],
+        firstName: [firstName],
+        lastName: [lastName],
+        email: [email],
+        created
+    });
+    return user;
+    await user.save();
+}
+
+
+async function getAllUsers() {
+    return await User.find({});
+}
+
+async function findByUsername(username) {
+    return await User.find({
+        "username": username
+    });
+}
+
+module.exports = {addUser, getAllUsers, findByUsername};
+```
+
+Test Example
+```Javascript
+const expect = require("chai").expect;
+const mongoose = require('mongoose');
+
+const dbConnect = require('../dbConnect');
+dbConnect(require('../settings').TEST_DB_URI);
+
+const User = require('../models/user');
+const userFacade = require('../facades/userFacade');
+
+describe('Testing userFacade', function () {
+
+    before(async function () {
+        // Removes all Users to test it again
+        await User.deleteMany({});
+
+        await userFacade.addUser(
+            "username",
+            "password",
+            "firstname",
+            "lastname",
+            "testEmail@email.dk"
+        );
+        await userFacade.addUser(
+            "username2",
+            "password2",
+            "firstname2",
+            "lastname2",
+            "testEmail@email.dk2"
+        );
+        await userFacade.addUser(
+            "username3",
+            "password3",
+            "firstname3",
+            "lastname3",
+            "testEmail@email.dk3"
+        );
+    });
+
+    it('Test if the User is in the DB', async function () {
+        var user = await User.find({firstName: "firstname"});
+        expect(user[0].lastName).to.be.equal("lastname", "Check for lastname");
+        expect(user[0].email).to.be.equal('testEmail@email.dk', "check for email");
+    });
+
+    it("Test if you can get all Users", async function () {
+        var users = await userFacade.getAllUsers();
+        expect(users[0].firstName).to.be.equal("firstname");
+        expect(users[1].firstName).to.be.equal("firstname2");
+        expect(users[2].firstName).to.be.equal("firstname3");
+    });
+
+    it("Test if you can find User by username", async function () {
+        var user = await userFacade.findByUsername("username2");
+        expect(user[0].firstName).to.be.equal("firstname2");
+    });
+
+    it("Test if you can add a new user", async function () {
+        var newUser = await userFacade.addUser(
+            "newUsername",
+            "newPassword",
+            "newFirstName",
+            "newLastName",
+            "newEmail"
+        );
+        var foundUser = await userFacade.findByUsername("newUsername");
+        expect(foundUser[0].username).to.be.equal("newUsername");
+
+    });
+
+    after(function () {
+        // at the end of the test do something...
+        // dbConnect.prototype.close
+        //dbConnect.connection.close()
+    });
+
+});
+```
+
+When the test is done running, it will return a list of `PASSED` and `FAILED` tests.
+In this example, all the tests pass.
 
 
 ### Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.
@@ -325,3 +473,6 @@ This topic will be introduced in period-3.
 This topic will be introduced in period-3.
 
 Demonstrate, using a REST-API you have designed, how to perform all CRUD operations on a MongoDB
+I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test) and in my [Jokes Exercise](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Express%20Exercises/Express_Exercise_Logger_%26_Serverside_Templating).
+
+
