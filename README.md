@@ -213,7 +213,7 @@ You login with a username, and can then request a random joke, get a list of all
 
 
 ### Explain, using relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using, for example, the Request package.
-This [example from Vegibit](https://vegibit.com/mongoose-crud-tutorial/) explains how implement CRUD in our Node/Express project.
+This [example from Vegibit](https://vegibit.com/mongoose-crud-tutorial/) explains how implement CRUD in our Node/Express project.   
 I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test).
 
 
