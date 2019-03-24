@@ -14,7 +14,7 @@ Developing with a scripting language like JavaScript is fairly simple and easy t
 Javascript is also currently the only scripting language that can run natively in your internet browser, which makes me believe it is the only good language for front-end development.
 
 The major advantage with node.js as the backend is that javascript doesn't block input and output communication with the frontend, which means javascript can run in the background at the same time as the user is using the frontend, and it can read input and outputs simultaneously.
-Another benefit to using javascript as the backend is single-threaded event loops, that is responsible for abstracting input and output from external requests. Speaking plainly, this means that Node initiates the event loop at the start, processes the input, and begins the order of operations. [(source)](https://thinkmobiles.com/blog/why-use-nodejs/)
+Another benefit to using javascript as the backend is single-threaded event loops, that is responsible for abstracting input and output from external requests. Speaking plainly, this means that Node initiates the event loop at the start, processes the input, and begins the order of operations. [(reference)](https://thinkmobiles.com/blog/why-use-nodejs/)
 
 ### Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using, for example, Java/JAX-RS/Tomcat
 #### pros
@@ -41,7 +41,7 @@ Since the release of Node.js v10.5.0 there’s a new worker_threads (clusters) m
 There are two solutions to make sure out Node-process restarts after a potential exception/crash.
 The first one is to use a Process Manager. A Process Manager manages the 'starting' of our application, which means we no longer have to start the application manually. We can configure the Process Manager to automatically restart the application if a crash occurs.
 
-Here is a list of popular Process Managers for Express [(source)](https://expressjs.com/en/advanced/pm.html):
+Here is a list of popular Process Managers for Express [(reference)](https://expressjs.com/en/advanced/pm.html):
 1. Forever: A simple command-line interface tool to ensure that a script runs continuously (forever). Forever’s simple interface makes it ideal for running smaller deployments of Node.js apps and scripts.
 2. PM2: A production process manager for Node.js applications that has a built-in load balancer. PM2 enables you to keep applications alive forever, reloads them without downtime, helps you to manage application logging, monitoring, and clustering.
 3. StrongLoop Process Manager (Strong-PM): A production process manager for Node.js applications with built-in load balancing, monitoring, and multi-host deployment. Includes a CLI to build, package, and deploy Node.js applications to a local or remote system.
@@ -372,7 +372,7 @@ and in my MiniProjectP1: https://github.com/Srax/FullStackJavascript-Flow2-Handi
 
 ### Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
 We can make HTTP-request using the [nock](https://www.npmjs.com/package/nock) package.
-Here is an example, using nock to request data from wikipedia [(source)](http://www.rkeagle.com/public/blog.php?category=JavaScript&tag=NODE.JS&page=9):
+Here is an example, using nock to request data from wikipedia [(reference)](http://www.rkeagle.com/public/blog.php?category=JavaScript&tag=NODE.JS&page=9):
 ```Javascript
 var expect = require("chai").expect;
 var tools = require("../lib/tools");
@@ -419,7 +419,7 @@ Since we use mongoDB, I decided to include their expert explanation of what NoSQ
 >* Long gone is the twelve-to-eighteen month waterfall development cycle. Now small teams work in agile sprints, iterating quickly and pushing code every week or two, some even multiple times every day.
 >* Applications that once served a finite audience are now delivered as services that must be always-on, accessible from many different devices and scaled globally to millions of users.   
 >* Organizations are now turning to scale-out architectures using open source software, commodity servers and cloud computing instead of large monolithic servers and storage infrastructure.   
-Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. [(source)](https://www.mongodb.com/nosql-explained)   
+Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. [(reference)](https://www.mongodb.com/nosql-explained)   
 
 ### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
 #### Pros to MongoDB (NoSQL)
@@ -438,15 +438,15 @@ var UserSchema = new Schema({
     job: [JobSchema]
 });
 ```
-3. Mongoose provides optional pre and post save operations for data models. This makes it easy to define hooks and custom functionality on successful reads/writes etc. You can also define custom methods that act on a particular instance (or document). While you can achieve similar functionality with the native MongoDB driver, Mongoose makes it easier to define and organize such methods within your schema definition. [(source)](https://www.stackchief.com/blog/Top%204%20Reasons%20to%20Use%20Mongoose%20with%20MongoDB)
+3. Mongoose provides optional pre and post save operations for data models. This makes it easy to define hooks and custom functionality on successful reads/writes etc. You can also define custom methods that act on a particular instance (or document). While you can achieve similar functionality with the native MongoDB driver, Mongoose makes it easier to define and organize such methods within your schema definition. [(reference)](https://www.stackchief.com/blog/Top%204%20Reasons%20to%20Use%20Mongoose%20with%20MongoDB)
 
-4. Mongoose makes returning updated documents or query results easier. A prime example can be found with update queries. While the native driver returns an object with a success flag and the number of documents modified, Mongoose returns the updated object itself so you can easily work with the results. [(source)](https://www.stackchief.com/blog/Top%204%20Reasons%20to%20Use%20Mongoose%20with%20MongoDB)
+4. Mongoose makes returning updated documents or query results easier. A prime example can be found with update queries. While the native driver returns an object with a success flag and the number of documents modified, Mongoose returns the updated object itself so you can easily work with the results. [(reference)](https://www.stackchief.com/blog/Top%204%20Reasons%20to%20Use%20Mongoose%20with%20MongoDB)
 
-5. The best rational models need the service of an expert to design, install and maintain. However, NoSQL models need much less expert management as it already has auto repair and data distribution capabilities, fewer administration and turning requirements as well as simplified data designs. [(source)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
+5. The best rational models need the service of an expert to design, install and maintain. However, NoSQL models need much less expert management as it already has auto repair and data distribution capabilities, fewer administration and turning requirements as well as simplified data designs. [(reference)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
 
-6. Given the fact that transaction rates are rising due to recognition, huge volumes of data need to be stored. While rational models have grown to meet this need it is illogical to use such models to store such large volumes of data. However these volumes can easily be handled by NoSQL models. [(source)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
+6. Given the fact that transaction rates are rising due to recognition, huge volumes of data need to be stored. While rational models have grown to meet this need it is illogical to use such models to store such large volumes of data. However these volumes can easily be handled by NoSQL models. [(reference)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
 
-7. Rational models require expensive proprietary servers and storage systems whereas NoSQL models are easy and cheap to install. This means that more data can be processed and stored at a very minimal cost. [(source)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
+7. Rational models require expensive proprietary servers and storage systems whereas NoSQL models are easy and cheap to install. This means that more data can be processed and stored at a very minimal cost. [(reference)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
 
 There are of course many more pros to using MongoDB (NoSQL) but these are some of the ones i found most important.
 
@@ -459,9 +459,9 @@ There are a few reasons why you should not use MongoDB.
 5. Some operations can unfortunately result in a full database lock (example. write operations) leading to concurrency issues.
 
 The above aside, ther are also some business related disadvantages, which [Crystal Ayres](https://greengarageblog.org/7-pros-and-cons-of-nosql) explained in her article on NoSQL:   
->  Not Mature - Rational models have been around for some time now compared to NoSQL models and as a result they have grown to be more functional and stable systems over the years.   
-> Less Support- Every business should be reassured that in case a key function in their database system fails, they will have unlimited competent support any time. All rational model vendors have gone the extra mile to provide this assurance and made it sure that their support is available 24 hours which is not a step yet guaranteed by NoSQL vendors.   
-> Business Analytics And Intelligence - NoSQL models were created because of the modern-day web 2.0 web applications in mind. And because of this, most NoSQL features are focused to meeting these demands ignoring the demands of apps made without these characteristics hence end up offering fewer analytic features for normal web apps.   
+>  **Not Mature** - Rational models have been around for some time now compared to NoSQL models and as a result they have grown to be more functional and stable systems over the years.   
+> **Less Support** - Every business should be reassured that in case a key function in their database system fails, they will have unlimited competent support any time. All rational model vendors have gone the extra mile to provide this assurance and made it sure that their support is available 24 hours which is not a step yet guaranteed by NoSQL vendors.   
+> **Business Analytics And Intelligence** - NoSQL models were created because of the modern-day web 2.0 web applications in mind. And because of this, most NoSQL features are focused to meeting these demands ignoring the demands of apps made without these characteristics hence end up offering fewer analytic features for normal web apps.   
 >Any businesses looking to implement NoSQL model needs to do it with caution, remembering the above mentioned pros and cons they posse in contrast to their rational opposites.
 
 ### Explain reasons to add a layer like Mongoose, on top on of a schema-less database like MongoDB
@@ -480,3 +480,16 @@ I have explained this earlier in the readme: `Explain, using relevant examples, 
 I have explained this earlier in the readme.
 
 ### 6 Rules of Thumb: Your Guide Through the Rainbow
+1. **One**: favor embedding unless there is a compelling reason not to
+2. **Two**: needing to access an object on its own is a compelling reason not to embed it
+3. **Three**: Arrays should not grow without bound. If there are more than a couple of hundred documents on the “many” side, don’t embed them; if there are more than a few thousand documents on the “many” side, don’t use an array of ObjectID references. High-cardinality arrays are a compelling reason not to embed.
+4. **Four**: Don’t be afraid of application-level joins: if you index correctly and use the projection specifier (as shown in part 2) then application-level joins are barely more expensive than server-side joins in a relational database.
+5. **Five**: Consider the write/read ratio when denormalizing. A field that will mostly be read and only seldom updated is a good candidate for denormalization: if you denormalize a field that is updated frequently then the extra work of finding and updating all the instances is likely to overwhelm the savings that you get from denormalizing.
+6. **Six**: As always with MongoDB, how you model your data depends – entirely – on your particular application’s data access patterns. You want to structure your data to match the ways that your application queries and updates it.
+[(reference)]
+
+### Demonstrate, using your own code-samples, decisions you have made regarding → normalization vs denormalization
+...
+
+### Explain, using a relevant example, a full JavaScript backend including relevant test cases to test the REST-API (not on the production database)
+...
