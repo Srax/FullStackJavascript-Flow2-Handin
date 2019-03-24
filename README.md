@@ -275,9 +275,9 @@ Relational databases were not designed to cope with the scale and agility challe
 
 ### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
 #### pros
-* MongoDB is schemale-less model which makes it very flexible, which means the database can very easily be expanded later in production with very little difficulty. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better way to go.
+1. MongoDB is schemale-less model which makes it very flexible, which means the database can very easily be expanded later in production with very little difficulty. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better way to go.
 
-* We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true`, `unique: true`, etc... to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
+2. We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true`, `unique: true`, etc... to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
 ```Javascript
 var UserSchema = new Schema({
     username: {type: String, unique: true, required: true},
@@ -290,3 +290,7 @@ var UserSchema = new Schema({
     job: [JobSchema]
 });
 ```
+>3. Mongoose provides optional pre and post save operations for data models. This makes it easy to define hooks and custom functionality on successful reads/writes etc. You can also define custom methods that act on a particular instance (or document). While you can achieve similar functionality with the native MongoDB driver, Mongoose makes it easier to define and organize such methods within your schema definition.
+
+> 4. Mongoose makes returning updated documents or query results easier. A prime example can be found with update queries. While the native driver returns an object with a success flag and the number of documents modified, Mongoose returns the updated object itself so you can easily work with the results.
+[(source)](https://www.stackchief.com/blog/Top%204%20Reasons%20to%20Use%20Mongoose%20with%20MongoDB)
