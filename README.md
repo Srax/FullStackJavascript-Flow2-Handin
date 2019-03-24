@@ -472,7 +472,11 @@ This topic will be introduced in period-3.
 ### Explain, using your own code examples, how you have used some of MongoDB's "special" indexes like TTL and 2dsphere
 This topic will be introduced in period-3.
 
-Demonstrate, using a REST-API you have designed, how to perform all CRUD operations on a MongoDB
-I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test) and in my [Jokes Exercise](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Express%20Exercises/Express_Exercise_Logger_%26_Serverside_Templating).
+### Demonstrate, using a REST-API you have designed, how to perform all CRUD operations on a MongoDB
+I have explained this earlier in the readme: `Explain, using relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using, for example, the Request package` 
 
 
+### Explain the benefits of using Mongoose, and demonstrate, using your own code, an example involving all CRUD operations
+I have explained this earlier in the readme.
+
+### 6 Rules of Thumb: Your Guide Through the Rainbow
