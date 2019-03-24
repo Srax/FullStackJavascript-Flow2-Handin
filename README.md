@@ -9,20 +9,11 @@ Acording to StackOverflow's [Most Popular Technologies](https://insights.stackov
 The reason Node.js is one of the most commonly used frameworks is due to it's growing community and the fact that its package manager "npm", is now the largest software registry on the web.
 ![](https://i.imgur.com/xrNlRWA.png)
 
-(fix this shizzle later man, just saving for later)  
+Developing with a scripting language like JavaScript is fairly simple and easy to understand, it is less cluttered and resource intensive.
+Javascript is also currently the only scripting language that can run natively in your internet browser, which makes me believe it is the only good language for front-end development.
 
-Quote: Barney" J. Stern](https://snipcart.com/blog/javascript-nodejs-backend-development)
-
->"My sense about popularity/trends/reasons:
->1) Javascript is currently the only language that runs in web browsers...so it is currently the only real language for front end development, and people like to use the language they know best for back end too. Some javascript front end frameworks have near variants that can be used for native mobile application development too.
-
->2) The combo of 1) and the node.js framework/package system is giving Javascript the most momentum of any language in back end web development, thought it is starting from a low base. And,, as the article points out, back end is more conservative.
-
->3) Javascript libraries/frameworks have a greater degree of fragmentation than other languages.
-
->4) New develoopments in web-assembly and compilation to Javascript make it likely that in the future there will be more use of statically typed languages compiling to code that runs on both web browsers and node or other back end Javascript compatible franeworks." - [- "Josh
-
-
+The major advantage with node.js as the backend is that javascript doesn't block input and output communication with the frontend, which means javascript can run in the background at the same time as the user is using the frontend, and it can read input and outputs simultaneously.
+Another benefit to using javascript as the backend is single-threaded event loops, that is responsible for abstracting input and output from external requests. Speaking plainly, this means that Node initiates the event loop at the start, processes the input, and begins the order of operations. [source](https://thinkmobiles.com/blog/why-use-nodejs/)
 
 ```
 Give examples
