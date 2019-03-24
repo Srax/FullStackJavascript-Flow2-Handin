@@ -274,7 +274,7 @@ Since we use mongoDB, I decided to include their expert explanation of what NoSQ
 Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. [(source)](https://www.mongodb.com/nosql-explained)   
 
 ### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
-#### pros
+#### Pros to MongoDB (NoSQL)
 1. MongoDB is schemale-less model which makes it very flexible, which means the database can very easily be expanded later in production with very little difficulty. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better way to go.
 
 2. We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true`, `unique: true`, etc... to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
@@ -300,4 +300,15 @@ var UserSchema = new Schema({
 
 7. Rational models require expensive proprietary servers and storage systems whereas NoSQL models are easy and cheap to install. This means that more data can be processed and stored at a very minimal cost. [(source)](https://greengarageblog.org/7-pros-and-cons-of-nosql)
 
-There are of course many more pros to using NoSQL (mongoDB) but these are some of the ones i found most important.
+There are of course many more pros to using MongoDB (NoSQL) but these are some of the ones i found most important.
+
+#### Cons to MongoDB (NoSQL)
+There are a few reasons why you should not use MongoDB.
+* You can not 'join' data with NoSQL.
+* MongoDB is a memory hog... you need a lot of memory to run larger MongoDB databases.
+* You need to handle the transaction yourself since there is no 'default' transaction method as we see in other database models.
+* NoSQL generally consume higer amounts of data due to the de-normalization on the database.
+* Some operations can unfortunately result in a full database lock (example. write operations) leading to concurrency issues.
+
+The above aside, ther are also some business related disadvantages, which [Crystal Ayres](https://greengarageblog.org/7-pros-and-cons-of-nosql) explained in her article on NoSQL:
+> Every business should be reassured that in case a key function in their database system fails, they will have unlimited competent support any time. All rational model vendors have gone the extra mile to provide this assurance and made it sure that their support is available 24 hours which is not a step yet guaranteed by NoSQL vendors.
