@@ -54,7 +54,7 @@ To ensure that we can run "many" node-applications on a single droplet at the sa
 Acording to [HackerNoon](https://hackernoon.com/please-stop-using-console-log-its-broken-b5d7d396cf15) one of the major problems with using `console.log` givesa way too much information, which can be used to hack our system. `console.log` also 'blocking call' which means it can impact the performance of our application by 'blocking' our other processes for a short period of time when it's called.
 
 The `Debug Package` for node.js allows us to debug our code and even print debug messages.
-Here is an example of how we can Debug in Express [source](https://www.npmjs.com/package/debug):  
+Here is an example of how we can Debug in Express:
 ```Javascript
 var a = require('debug')('worker:a')
   , b = require('debug')('worker:b');
@@ -73,3 +73,4 @@ function workb() {
  
 workb();
 ```
+[source](https://www.npmjs.com/package/debug)
