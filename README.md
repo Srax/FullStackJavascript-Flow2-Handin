@@ -199,13 +199,13 @@ app.get("/*", function(req, res) {
 });
 ```
 The above example shows 3 different middleware functions.
-`Function 3` shows a middleware function mounted on the `/*` path, it prints out some simple information on the page. The function is executed for any type of HTTP request on the `/*` path.
+`Function 3` shows a middleware function mounted on the `/*` path, it prints out some simple information on the page. The function is executed for any type of HTTP request on the `/*` path.   
 
 `Function 2` shows a middleware function mounted on the `/api/calculator/*` path.
 It take the information from `Function 2`, calculates the result by using `eval`, and then turns it into a JSON object which is then displayed on the side. Example, if `Function 1` returns a `operation: +´, n1: 2, n3: 5` response, `Function 2` will calculate the response and return `7` as the result.
-The function is executed for any type of HTTP request on the `/api/calculator/*` path.
+The function is executed for any type of HTTP request on the `/api/calculator/*` path.   
 
-`Functiion 1` shows a middleware function mounted on the `/api/calculator/:n1/:operation/:n2`, where it take parameters from the PATH and wrap them in  a request.
+`Functiion 1` shows a middleware function mounted on the `/api/calculator/:n1/:operation/:n2`, where it take parameters from the PATH and wrap them in  a request.   
 
 ### Demonstrate a simple Server Side Rendering example using a technology of your own choice (pug, EJS, ..).
 I have used server side rendering in my `Jokes` exercise with EJS: [Express_Exercise_Logger_&_Serverside_Templating](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Express%20Exercises/Express_Exercise_Logger_%26_Serverside_Templating).
