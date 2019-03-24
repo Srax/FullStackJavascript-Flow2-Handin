@@ -277,7 +277,7 @@ Relational databases were not designed to cope with the scale and agility challe
 #### pros
 * MongoDB is schemale-less model which makes it very flexible, which means the database can very easily be expanded later in production with very little difficulty. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better way to go.
 
-* We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true` to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
+* We can use Mongoose's built-in vailcation to validate our schemas. This allows us save time by not having to write our own validation code, by simply including `required: true`, `unique: true`, etc... to our schema definitions. Here's an example where I've used Mongoose validation to make sure certain information IS required to create a user:
 ```Javascript
 var UserSchema = new Schema({
     username: {type: String, unique: true, required: true},
