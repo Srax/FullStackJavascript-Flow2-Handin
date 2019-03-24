@@ -33,3 +33,9 @@ API’s solves the problem, for example: Node can install a fetch module that ma
 
 ##### Solution 2:
 Since the release of Node.js v10.5.0 there’s a new worker_threads module available, which we can use to make multiple threads run at the same time at different cores.
+
+### Explain briefly how to deploy a Node/Express application including how to solve the following deployment problems: Ensure that you Node-process restarts after a (potential) exception that closed the application Ensure that you Node-process restarts after a server (Ubuntu) restart Ensure that you can take advantage of a multi-core system Ensure that you can run “many” node-applications on a single droplet on the same port (80)
+There are two solutions to make sure out Node-process restarts after a potential exception/crash.
+The first one is to use a Process Manager. A Process Manager manages the 'starting' of our application, which means we no longer have to start the application manually. We can configure the Process Manager to automatically restart the application if a crash occurs.
+
+The second solution is to use Nodemon is a utility that monitor for changes in our source, which means it can be used to restart our application or server if it crashes.
