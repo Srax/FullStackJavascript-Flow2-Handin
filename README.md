@@ -217,4 +217,40 @@ This [example from Vegibit](https://vegibit.com/mongoose-crud-tutorial/) explain
 I have tested CRUD operations in my [MiniProjectP1](https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject/test).
 
 
+### Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.
+I have tested asynchronous code in my week 2 mocca and chai exercise: https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/Testing/TestExercisesMochaAndChai_Calculator  
+and in my MiniProjectP1: https://github.com/Srax/FullStackJavascript-Flow2-Handin/tree/master/miniProject   
 
+### Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
+We can make HTTP-request using the [nock](https://www.npmjs.com/package/nock) package.
+Here is an example, using nock to request data from wikipedia [(source)](http://www.rkeagle.com/public/blog.php?category=JavaScript&tag=NODE.JS&page=9):
+```Javascript
+var expect = require("chai").expect;
+var tools = require("../lib/tools");
+var nock = require("nock");
+describe("Tools", function() {
+   describe("printName()", function() {
+      it("should print the last name first", function() {
+         var results = tools.printName({ first: "Alex", last: "Banks"});
+         expect(results).to.equal("Banks, Alex");
+      });
+   });
+   describe("loadWiki()", function() {
+      before(function() {
+         nock("https://en.wikipedia.org")
+             .get("/wiki/Abraham_Lincoln")
+             .reply(200, "Mock Abraham Lincoln Page");
+      });
+
+      it("Load Abraham Lincoln's wikipedia page", function(done) {
+         tools.loadWiki({ first: "Abraham", last: "Lincoln"}, function(html) {
+            expect(html).to.equal("Mock Abraham Lincoln Page");
+            done();
+         });
+
+      });
+
+   });
+
+});
+```
