@@ -304,11 +304,15 @@ There are of course many more pros to using MongoDB (NoSQL) but these are some o
 
 #### Cons to MongoDB (NoSQL)
 There are a few reasons why you should not use MongoDB.
-* You can not 'join' data with NoSQL.
-* MongoDB is a memory hog... you need a lot of memory to run larger MongoDB databases.
-* You need to handle the transaction yourself since there is no 'default' transaction method as we see in other database models.
-* NoSQL generally consume higer amounts of data due to the de-normalization on the database.
-* Some operations can unfortunately result in a full database lock (example. write operations) leading to concurrency issues.
+1. You can not 'join' data with NoSQL.
+2. MongoDB is a memory hog... you need a lot of memory to run larger MongoDB databases.
+3. You need to handle the transaction yourself since there is no 'default' transaction method as we see in other database models.
+4. NoSQL generally consume higer amounts of data due to the de-normalization on the database.
+5. Some operations can unfortunately result in a full database lock (example. write operations) leading to concurrency issues.
 
 The above aside, ther are also some business related disadvantages, which [Crystal Ayres](https://greengarageblog.org/7-pros-and-cons-of-nosql) explained in her article on NoSQL:
-> Every business should be reassured that in case a key function in their database system fails, they will have unlimited competent support any time. All rational model vendors have gone the extra mile to provide this assurance and made it sure that their support is available 24 hours which is not a step yet guaranteed by NoSQL vendors.
+>  Not Mature - Rational models have been around for some time now compared to NoSQL models and as a result they have grown to be more functional and stable systems over the years.
+> Less Support- Every business should be reassured that in case a key function in their database system fails, they will have unlimited competent support any time. All rational model vendors have gone the extra mile to provide this assurance and made it sure that their support is available 24 hours which is not a step yet guaranteed by NoSQL vendors.
+> Business Analytics And Intelligence - NoSQL models were created because of the modern-day web 2.0 web applications in mind. And because of this, most NoSQL features are focused to meeting these demands ignoring the demands of apps made without these characteristics hence end up offering fewer analytic features for normal web apps.
+
+Any businesses looking to implement NoSQL model needs to do it with caution, remembering the above mentioned pros and cons they posse in contrast to their rational opposites.
