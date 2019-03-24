@@ -56,8 +56,8 @@ Acording to [HackerNoon](https://hackernoon.com/please-stop-using-console-log-it
 The `Debug Package` for node.js allows us to debug our code and even print debug messages.
 Here is an example of how we can Debug in Express:
 ```Javascript
-var a = require('debug')('worker:a')
-  , b = require('debug')('worker:b');
+var a = require('debug')('a');
+var b = require('debug')('b');
  
 function work() {
   a('doing lots of uninteresting work');
@@ -74,3 +74,22 @@ function workb() {
 workb();
 ```
 [source](https://www.npmjs.com/package/debug)
+
+The debug's can easily be enabled or disabled by changing the `DEBUG` enviorement variable.
+* if `DEBUG=*`, all our debug statements will be printed in the console.
+* if `DEBUG=a`, only the `a` variable will be printed.
+* if `DEBUG=*, -a`, all our debug statements will be printed, except for `a` variable.
+* if `DEBUG=a,b`, is used to define multiple debugs, in this example, both the `a` variable and the `b` variable will be printed.
+
+We can also specify what debug we want to run based on the debug's name (regex syntax):
+```Javascript
+var a = require('debug')('name:a');
+var b = require('debug')('name:b');
+```
+* if `DEBUG=name:a`, the `a` variable will be debugged.
+* if `DEBUG=name:a, name:b`, both the `a` variable and the `b` variable will be debugged.
+* if `DEBUG=name:*` all debug statements with `name` in it will be debugged.
+
+
+### Demonstrate a system using application logging and “coloured” debug statements.
+
