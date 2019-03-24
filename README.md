@@ -13,7 +13,7 @@ Developing with a scripting language like JavaScript is fairly simple and easy t
 Javascript is also currently the only scripting language that can run natively in your internet browser, which makes me believe it is the only good language for front-end development.
 
 The major advantage with node.js as the backend is that javascript doesn't block input and output communication with the frontend, which means javascript can run in the background at the same time as the user is using the frontend, and it can read input and outputs simultaneously.
-Another benefit to using javascript as the backend is single-threaded event loops, that is responsible for abstracting input and output from external requests. Speaking plainly, this means that Node initiates the event loop at the start, processes the input, and begins the order of operations. [source](https://thinkmobiles.com/blog/why-use-nodejs/)
+Another benefit to using javascript as the backend is single-threaded event loops, that is responsible for abstracting input and output from external requests. Speaking plainly, this means that Node initiates the event loop at the start, processes the input, and begins the order of operations. [(source)](https://thinkmobiles.com/blog/why-use-nodejs/)
 
 ### Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using, for example, Java/JAX-RS/Tomcat
 #### pros
